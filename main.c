@@ -1,11 +1,5 @@
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL2_gfxPrimitives.h>
-#include <math.h>
-#include <stdlib.h>
 #include "fomenu.h"
 #include "jatek.h"
-#include <SDL_mixer.h>
 #include "play.h"
 #include "uj.h"
 

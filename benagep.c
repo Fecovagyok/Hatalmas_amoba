@@ -1,18 +1,4 @@
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL2_gfxPrimitives.h>
-#include <math.h>
-#include <stdlib.h>
-#include <time.h>
-#include "fo_megjelen.h"
-#include "jatek_megjelen.h"
-#include "play.h"
-#include <SDL_mixer.h>
-#include "jatek.h"
-#include "fomenu.h"
-#include <assert.h>
-#include "esemenyhalo.h"
-#include "debugmalloc.h"
+#include "benagep.h"
 
 SDL_bool vegejobb(int j, palyaadat *pd){
     if(j-3 == pd->oszlop)

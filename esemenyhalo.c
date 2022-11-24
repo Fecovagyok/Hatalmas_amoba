@@ -1,11 +1,4 @@
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL2_gfxPrimitives.h>
-#include <math.h>
-#include <stdlib.h>
-#include "fo_megjelen.h"
 #include "esemenyhalo.h"
-#include <SDL_mixer.h>
 
 eger egermove(SDL_Event ev, gombadat* g){
     eger e;

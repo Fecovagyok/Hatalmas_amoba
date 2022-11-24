@@ -1,6 +1,6 @@
 #ifndef JATEK_H_INCLUDED
 #define JATEK_H_INCLUDED
-#include "fo_megjelen.h"
+
 #include "jatek_megjelen.h"
 
 typedef struct nyeradat{

@@ -1,6 +1,5 @@
 #ifndef JATEK_MEGJELEN_H_INCLUDED
 #define JATEK_MEGJELEN_H_INCLUDED
-#include "fo_megjelen.h"
 
 typedef struct felb{
     int x, y;
@@ -14,6 +13,9 @@ typedef struct palyaadat{
 typedef enum negyzet {
     ures, kor, iksz, ninit
 } negyzet;
+
+#include "fo_megjelen.h"
+#include  <assert.h>
 
 void jatek_kirajzol(SDL_Renderer *rende, palyaadat pd);
 void jatek_init(SDL_Renderer *rende, negyzet ***r, palyaadat pd);

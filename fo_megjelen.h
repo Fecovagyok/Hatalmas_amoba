@@ -1,10 +1,15 @@
 #ifndef FO_MEGJELEN_H_INCLUDED
 #define FO_MEGJELEN_H_INCLUDED
-void sdl_init(char const *felirat, SDL_Window **pwindow, SDL_Renderer **prenderer);
 
-typedef struct hszog{
-    int x1, x2, x3, y1, y2, y3;
-} hszog;
+#include <stdlib.h>
+#include <math.h>
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL2_gfxPrimitives.h>
+#include <SDL_ttf.h>
+
+
+typedef enum menu {kilep, fo, uj, jatek, betolt, nyert} menu;
 
 typedef struct eger{  //Az eventes adatátadásoknál nagy segítségemre van
     SDL_bool katt, folott, fol;
@@ -16,6 +21,14 @@ typedef struct gombadat{ // A kerekített sarkú teglalap adait tartalmazza, hogy 
     int x1, y1, x2, y2, gombsug, r, g, b, a;
 } gombadat;
 
+#include "esemenyhalo.h"
+
+void sdl_init(char const *felirat, SDL_Window **pwindow, SDL_Renderer **prenderer);
+
+typedef struct hszog{
+    int x1, x2, x3, y1, y2, y3;
+} hszog;
+
 typedef struct szin{
     int r, g, b, a;
 } szin;
@@ -25,8 +38,6 @@ typedef struct feliratt{ //Gyakran van szükség a feliratok újbóli kiírására, ily
     SDL_Rect tegla;
     hszog hsz;
 } feliratt;
-
-typedef enum menu {kilep, fo, uj, jatek, betolt, nyert} menu;
 
 void hatterbetolt(SDL_Renderer *rende, feliratt *hatter, char *fajl);
 int kerekitett_tegla(gombadat g);

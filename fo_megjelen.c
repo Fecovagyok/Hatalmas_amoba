@@ -1,12 +1,4 @@
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL2_gfxPrimitives.h>
-#include <math.h>
-#include <stdlib.h>
 #include "fo_megjelen.h"
-#include <SDL_ttf.h>
-#include "esemenyhalo.h"
-#include <assert.h>
 
 void sdl_init(char const *felirat, SDL_Window **pwindow, SDL_Renderer **prenderer) {
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {

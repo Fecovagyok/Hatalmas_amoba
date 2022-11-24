@@ -1,17 +1,5 @@
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL2_gfxPrimitives.h>
-#include <math.h>
-#include <stdlib.h>
 #include "jatek_megjelen.h"
-#include "jatek.h"
-#include "fo_megjelen.h"
-#include <SDL_ttf.h>
-#include "esemenyhalo.h"
-#include <assert.h>
-#include <stdio.h>
 #include "benagep.h"
-#include "debugmalloc.h"
 
 typedef struct vizszint{
     SDL_Renderer *rende;
