@@ -1,18 +1,5 @@
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL2_gfxPrimitives.h>
-#include <math.h>
-#include <stdlib.h>
-#include "fo_megjelen.h"
-#include "jatek_megjelen.h"
-#include "play.h"
-#include <SDL_mixer.h>
-#include <SDL_ttf.h>
 #include "jatek.h"
-#include "fomenu.h"
-#include <assert.h>
-#include "esemenyhalo.h"
-#include "debugmalloc.h"
+#include "palya_manage.h"
 #include <stdio.h>
 
 void nyerszamol(nyeradat n, int xe, int ye){
@@ -62,14 +49,14 @@ menu nyerte(negyzet **r, int x, int y, negyzet jelen, const palyaadat *pd){
 
 int mentes(palyaadat pd, negyzet **palya, negyzet j){
     FILE *fp;
-    fp = fopen("save/mentes.dat", "wb");
+    fp = fopen("save/mentes.dat", "wt");
     if(fp == NULL){
         perror("Nem tudok fajlt irni");
         return -1;
     }
     fprintf(fp, "letezik %d, %d, %d, %d, %d, %d, %d, %d\n", pd.sor, pd.oszlop, pd.negyzetmeret, j, pd.jatekos, pd.rakszamol, pd.eltx, pd.elty);
-    for(int i = 4; i < pd.sor+4; i++){
-        for(int j = 4; j < pd.oszlop+4; j++){
+    for(int i = 4; i < pd.sor + 4; i++){
+        for(int j = 4; j < pd.oszlop + 4; j++){
             fprintf(fp, "%d ", palya[i][j]);
         }
         fprintf(fp, "\n");
@@ -101,20 +88,13 @@ int jatek_betolt(SDL_Renderer *rende, negyzet ***r, palyaadat* pd, negyzet *jele
         assert((*r)[i] != 0);
     }
 
-    for(int i = 0; i < 4; i++){
-        for(int j = 0; j < 4; j++) //A keretetnek külön kell értéket adni
-            (*r)[i][j] = ninit;
-    }
-    for(int i = 4; i < pd->sor+4; i++){
-        for(int j = 4; j < pd->oszlop+4; j++){
+    keret_init(*r, pd);
+
+    for(int i = 4; i < pd->sor + 4; i++){
+        for(int j = 4; j < pd->oszlop + 4; j++){
             fscanf(fp, "%d ", (int*)(&((*r)[i][j])));
         }
         fscanf(fp, "\n");
-    }
-    for(int i = 4; i < 8; i++){
-        for(int j = 4; j < 8; j++){
-            (*r)[pd->sor + i][pd->oszlop +j] = ninit;
-        }
     }
     fclose(fp);
     return 0;

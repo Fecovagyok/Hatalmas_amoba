@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.23.2)
 
 project(Hatalmas C)
 
@@ -21,7 +21,7 @@ add_executable(hatalmas_hazi
     jatek_megjelen.c
     benagep.c
     audio/play.c
-)
+        palya_manage.c)
 
 cmake_print_variables(SDL2_IMAGE_LIBRARIES)
 include_directories(${SDL2_INCLUDE_DIRS} )

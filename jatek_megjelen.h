@@ -11,7 +11,7 @@ typedef struct palyaadat{
 } palyaadat;
 
 typedef enum negyzet {
-    ures, kor, iksz, ninit
+    ures = 0, kor = 1, iksz = 2, ninit = -1
 } negyzet;
 
 #include "fo_megjelen.h"

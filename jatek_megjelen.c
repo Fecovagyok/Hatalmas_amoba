@@ -1,4 +1,5 @@
 #include "jatek_megjelen.h"
+#include "palya_manage.h"
 #include "benagep.h"
 
 typedef struct vizszint{
@@ -52,23 +53,13 @@ void szovegkiir(SDL_Renderer *rende, char const *szoveg, int betumeretarany, int
 
 void jatek_init(SDL_Renderer *rende, negyzet ***r, palyaadat pd){ //Kezdeti értéket ad a pályának
     *r = (negyzet**)malloc(sizeof(negyzet*)*(pd.sor+8));
-    assert(*r != 0);
+    negyzet **palya = *r;
+    assert(palya != 0);
     for(int i = 0; i < (pd.sor+8); i++){
-        (*r)[i] = (negyzet*)malloc(sizeof(negyzet)*(pd.oszlop+8));
-        assert((*r)[i] != 0);
+        palya[i] = (negyzet*)malloc(sizeof(negyzet)*(pd.oszlop+8));
+        assert(palya[i] != 0);
     }
-
-    for(int i = 0; i < pd.sor+8; i++){
-        for(int j = 0; j < pd.oszlop+8; j++){
-            (*r)[i][j] = ninit;
-
-        }
-    }
-    for(int i = 4; i < pd.sor +4; i++){
-        for(int j = 4; j < pd.oszlop+4; j++){
-            (*r)[i][j] = ures;
-        }
-    }
+    palya_init(palya, &pd);
     aacircleRGBA(rende, pd.fb.x-pd.fb.x/17, (pd.fb.y/40)*6, pd.fb.x/53, 0, 0, 0, 255);
 }
 
