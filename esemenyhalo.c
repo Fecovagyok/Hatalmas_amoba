@@ -41,10 +41,8 @@ SDL_bool rakottt(SDL_Event ev, palyaadat pd){
 
     if(ev.type == SDL_MOUSEBUTTONDOWN && ev.button.button == SDL_BUTTON_LEFT){
         if(ev.button.x < pd.oszlop*pd.negyzetmeret + pd.eltx && ev.button.x > pd.eltx && ev.button.y < pd.sor*pd.negyzetmeret + pd.elty && ev.button.y > pd.elty){
-            SDL_Log("Lenyomtam a bal gombot a palyan belul: %s",SDL_GetError());
             return SDL_TRUE;
         }
-        SDL_Log("Lenyomtam a bal gombot a palyan kivul: %s",SDL_GetError());
     }
     return SDL_FALSE;
 }

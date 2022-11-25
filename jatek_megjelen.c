@@ -33,7 +33,6 @@ void szovegkiir(SDL_Renderer *rende, char const *szoveg, int betumeretarany, int
         exit(1);
     }
 
-    SDL_Log("x: %d  y: %d", x, y);
     SDL_Color fekete = {30, 30, 30};
     SDL_Surface *cim = TTF_RenderUTF8_Blended(betu, szoveg, fekete);
     SDL_Texture *cim_t = SDL_CreateTextureFromSurface(rende, cim);
@@ -184,10 +183,8 @@ menu update_j(SDL_Renderer *rende, SDL_Event ev, negyzet **r, palyaadat *pd, neg
     if(rakott){
         posx = (ev.button.x-pd->eltx)/pd->negyzetmeret + 4; //A keretet kezelem
         posy = (ev.button.y-pd->elty)/pd->negyzetmeret + 4;
-        SDL_Log("posx: %d  posy: %d", posx-3, posy-3);
         if(r[posy][posx] == ures){ //Nem rakhatok ugyanoda kétszer
             pd->rakszamol += 1;
-            SDL_Log("Rakott: %d",pd->rakszamol);
             r[posy][posx] = *jelen;
         jatek_ujrarajzol(rende, *jelen, *pd, posx-4, posy-4);
         SDL_RenderPresent(rende);

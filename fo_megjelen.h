@@ -11,12 +11,12 @@
 
 typedef enum menu {kilep, fo, uj, jatek, betolt, nyert} menu;
 
-typedef struct eger{  //Az eventes adatátadásoknál nagy segítségemre van
+typedef struct eger{  //Az eventes adatÃ¡tadÃ¡soknÃ¡l nagy segÃ­tsÃ©gemre van
     SDL_bool katt, folott, fol;
     int gomb;
 } eger;
 
-typedef struct gombadat{ // A kerekített sarkú teglalap adait tartalmazza, hogy késõbb az event-tel hivatkozhassak rá
+typedef struct gombadat{ // A kerekÃ­tett sarkÃº teglalap adait tartalmazza, hogy kÃ©sÃµbb az event-tel hivatkozhassak rÃ¡
     SDL_Renderer *rende;
     int x1, y1, x2, y2, gombsug, r, g, b, a;
 } gombadat;
@@ -33,7 +33,7 @@ typedef struct szin{
     int r, g, b, a;
 } szin;
 
-typedef struct feliratt{ //Gyakran van szükség a feliratok újbóli kiírására, ilyenkor nagyban segít ha azoknak a textúráját eltárolom, és csak azokkal dolgozok tovább
+typedef struct feliratt{ //Gyakran van szÃ¼ksÃ©g a feliratok ÃºjbÃ³li kiÃ­rÃ¡sÃ¡ra, ilyenkor nagyban segÃ­t ha azoknak a textÃºrÃ¡jÃ¡t eltÃ¡rolom, Ã©s csak azokkal dolgozok tovÃ¡bb
     SDL_Texture *kep;
     SDL_Rect tegla;
     hszog hsz;
