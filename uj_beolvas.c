@@ -96,6 +96,7 @@ void egerbalkatt(SDL_Event ev, SDL_Renderer *rende, segedbool *seged, gombadat *
 }
 
 menu egerbalkattfel(SDL_Event ev, SDL_Renderer *rende, segedbool *seged, gombadat *g, SDL_bool *folehuz, feliratt *e, textinput *t){
+    SDL_Color piros = { 252, 170, 170 };
         if(ev.button.button == SDL_BUTTON_LEFT && seged->kattvolt){
             refresh(rende, e, seged->solo);
             if(seged->folottvolt){
@@ -116,11 +117,9 @@ menu egerbalkattfel(SDL_Event ev, SDL_Renderer *rende, segedbool *seged, gombada
                     else
                         osz = (t->dest[1][0] - '0')*10 + t->dest[1][1] - '0';
                     if(osz < 5 || so < 5){
-                        SDL_Color piros = {255, 40, 40};
                         szovegkiirkozep(rende, "A megadott adat nem lehet 5-nél kisebb!", 13, 40, 7, piros, NULL, SDL_TRUE);
                     }
                     else if((so > 43) || (osz > 60)){
-                        SDL_Color piros = {255, 40, 40};
                         szovegkiirkozep(rende, "A megadott adotok túl nagyok! (max 60 oszlop és 43 sor)", 17, 40, 8, piros, NULL, SDL_TRUE);
                     }
                     else

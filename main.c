@@ -23,7 +23,7 @@ void menuhiv(menu *m, SDL_Renderer *rende, palyaadat *pd){
 }
 
 int main(int argc, char *argv[]) {
-    //zenel(); //A zene kiválasztására nem maradt idő, úgyhogy ezt kihagytam
+    zenel(); //A zene kiválasztására nem maradt idő, úgyhogy ezt kihagytam
     SDL_Window *window;
     SDL_Renderer *renderer;
     sdl_init("Amőba for Life", &window, &renderer);
