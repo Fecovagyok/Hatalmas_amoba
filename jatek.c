@@ -2,6 +2,31 @@
 #include "palya_manage.h"
 #include <stdio.h>
 
+#ifdef _WIN32
+#include <windows.h>
+#include <fileapi.h>
+#else
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#endif
+
+void directoryCheck(char* dir_name){
+#ifdef _WIN32
+    if(CreateDirectoryA(dir_name, NULL) ||GetLastError() == ERROR_ALREADY_EXISTS){
+        // Minden rendben
+        SDL_LOG("Saving directory is okay");
+    }
+#else
+    struct stat st = {0};
+    if(stat(dir_name, &st) == -1){
+        mkdir(dir_name, 0700);
+        SDL_Log("Saving directory created");
+    }
+#endif
+
+}
+
 void nyerszamol(nyeradat n, int xe, int ye){
     for(int i = 1; i < 5 && *n.irany < 5; i++){
         if(n.r[n.y+ye*i][n.x+xe*i] == n.jelen)
@@ -49,6 +74,8 @@ menu nyerte(negyzet **r, int x, int y, negyzet jelen, const palyaadat *pd){
 
 int mentes(palyaadat pd, negyzet **palya, negyzet j){
     FILE *fp;
+
+    directoryCheck("save");
     fp = fopen("save/mentes.dat", "wt");
     if(fp == NULL){
         perror("Nem tudok fajlt irni");
