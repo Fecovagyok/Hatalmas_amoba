@@ -15,7 +15,7 @@ void directoryCheck(char* dir_name){
 #ifdef _WIN32
     if(CreateDirectoryA(dir_name, NULL) ||GetLastError() == ERROR_ALREADY_EXISTS){
         // Minden rendben
-        SDL_LOG("Saving directory is okay");
+        SDL_Log("Saving directory is okay");
     }
 #else
     struct stat st = {0};

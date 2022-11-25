@@ -1,12 +1,12 @@
 #ifndef FO_MEGJELEN_H_INCLUDED
 #define FO_MEGJELEN_H_INCLUDED
 
-#include <stdlib.h>
-#include <math.h>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL2_gfxPrimitives.h>
 #include <SDL_ttf.h>
+#include <stdlib.h>
+#include <math.h>
 
 
 typedef enum menu {kilep, fo, uj, jatek, betolt, nyert} menu;
